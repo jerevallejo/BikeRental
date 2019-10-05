@@ -15,8 +15,6 @@ public class ClientServiceImp implements IClientService{
 	@Autowired
 	private IClientDao clientDao;
 	
-
-
 	@Override
 	@Transactional(readOnly = true)
 	public List<Client> findAll() {
@@ -24,4 +22,24 @@ public class ClientServiceImp implements IClientService{
 		return (List<Client>) clientDao.findAll();
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Client findById(Long id) 
+	{
+		return clientDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public Client save(Client Client)
+	{
+		return clientDao.save(Client);
+	}
+
+	@Override
+	@Transactional
+	public void delete(long id) 
+	{
+		clientDao.deleteById(id);
+	}
 }
