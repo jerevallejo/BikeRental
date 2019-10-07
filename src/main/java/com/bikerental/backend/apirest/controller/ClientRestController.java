@@ -37,7 +37,7 @@ public class ClientRestController {
 		return clientService.findAll();
 	}
 
-	@GetMapping("/client/{id}")
+	@GetMapping("/clients/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 		Client client = null;
 		Map<String, Object> response = new HashMap<>();
@@ -57,7 +57,7 @@ public class ClientRestController {
 		return new ResponseEntity<Client>(client, HttpStatus.OK);
 	}
 
-	@PostMapping("/client")
+	@PostMapping("/clients")
 	public ResponseEntity<?> create(@Valid @RequestBody Client client, BindingResult result) {
 		Client clientNew = null;
 		Map<String, Object> response = new HashMap<>();
@@ -85,7 +85,7 @@ public class ClientRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/client/{id}")
+	@PutMapping("/clients/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody Client client, BindingResult result, @PathVariable Long id) {
 		Client clientActual = clientService.findById(id);// current, prevailing
 		Client clientUpdated = null;

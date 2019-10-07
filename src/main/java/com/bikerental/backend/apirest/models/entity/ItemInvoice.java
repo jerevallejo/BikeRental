@@ -22,7 +22,7 @@ public class ItemInvoice implements Serializable {
 
 	private Integer quantity;
 
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler"})
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Service service;
 

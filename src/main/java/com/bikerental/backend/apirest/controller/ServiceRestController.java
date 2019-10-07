@@ -36,7 +36,7 @@ public class ServiceRestController {
 		return serviceService.findAll();
 	}
 
-	@GetMapping("/service/{id}")
+	@GetMapping("/services/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 		Service service = null;
 		Map<String, Object> response = new HashMap<>();
@@ -56,7 +56,7 @@ public class ServiceRestController {
 		return new ResponseEntity<Service>(service, HttpStatus.OK);
 	}
 
-	@PostMapping("/service")
+	@PostMapping("/services")
 	public ResponseEntity<?> create(@Valid @RequestBody Service service, BindingResult result) {
 		Service serviceNew = null;
 		Map<String, Object> response = new HashMap<>();
@@ -84,7 +84,7 @@ public class ServiceRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/service/{id}")
+	@PutMapping("/services/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody Service service, BindingResult result, @PathVariable Long id) {
 		Service serviceActual = serviceService.findById(id);// current, prevailing
 		Service serviceUpdated = null;
@@ -122,7 +122,7 @@ public class ServiceRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
-	@DeleteMapping("/service/{id}")
+	@DeleteMapping("/services/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		Map<String, Object> response = new HashMap<>();
 		try {

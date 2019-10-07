@@ -1,5 +1,5 @@
 
-INSERT INTO clients (name, last_name, create_at) VALUES ('Jeremias1', 'Vallejo', '2001-01-01');
+INSERT INTO clients (name, last_name, create_at) VALUES ('Jeremias', 'Vallejo', '2001-01-01');
 INSERT INTO clients (name, last_name, create_at) VALUES ('Juan', 'Alonzo', '2002-02-02');
 INSERT INTO clients (name, last_name, create_at) VALUES ('Pedro', 'Suarez', '2003-03-03');
 INSERT INTO clients (name, last_name, create_at) VALUES ('Ana', 'Liza', '2004-04-04');
@@ -21,5 +21,5 @@ INSERT INTO invoices_items (quantity, service_id, invoice_id) VALUES (2, 1, 1);
 INSERT INTO invoices_items (quantity, service_id, invoice_id) VALUES (1, 2, 1);
 
 INSERT INTO invoices (client_id, create_at) VALUES (2, NOW());
-INSERT INTO invoices_items (quantity, service_id, invoice_id) VALUES (3, 3, 2);
+INSERT INTO invoices_items (quantity, service_id, invoice_id) VALUES (1, 3, 2);
 INSERT INTO invoices_items (quantity, service_id, invoice_id) VALUES (1, 2, 2);

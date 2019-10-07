@@ -41,7 +41,7 @@ public class Client implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
 
-	@JsonIgnoreProperties(value={"client", "hibernateLazyInitializer", "handler"}, allowSetters = true)
+	@JsonIgnoreProperties(value = { "client", "hibernateLazyInitializer", "handler" }, allowSetters = true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
 	private List<Invoice> invoices;
 
