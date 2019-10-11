@@ -3,7 +3,7 @@ Sistema para servicio de alquiler de bicicletas
 
 En el desarrollo de este sistema se decidió utilizar una aplicación basada en servicios, realizada con Spring Boot, por el momento la aplicación solo dispone de un backend, donde se pueden realizar las consultas básicas para el funcionamiento solicitado por el cliente. Se decidió utilizar esta arquitectura ya que nos da la flexibilidad para trabajar de forma independiente el Backend y el frontend, También da la posibilidad del día de mañana realizar un cambio de tecnología para el fontend o el backend sin tener que modificar el sistema completo.
 
-La primera acción que realizamos para el desarrollo de este sistema fue definir las entidades que están involucradas en las acciones necesarias para llevar a cabo las funcionalidades solicitadas por el cliente. Luego se implementaron las entidades definidas, generando su CRUD al cual se accede mediante peticiones HTTP, estos métodos HTTP (GET, POST, PUT, DELETE).
+La primera acción que realizamos para el desarrollo de este sistema fue definir las [entidades(ver grafica)](https://github.com/jerevallejo/BikeRental/wiki/Diagrama-de-Clases.) que están involucradas en las acciones necesarias para llevar a cabo las funcionalidades solicitadas por el cliente. Luego se implementaron las entidades definidas, generando su CRUD al cual se accede mediante peticiones HTTP, estos métodos HTTP (GET, POST, PUT, DELETE).
 
 Los end points otorgados por nuestro api son:
 -------------------------------------------------------
@@ -42,9 +42,7 @@ Install
 
 1. Para instalar la aplicación se debe clonar el repo.
 	* Abrir el IDE utilizado para trabajar e importar el proyecto Maven clonado.
-	* Luego de que finalicen las descargas de dependencias se debe abrir la carpeta src/.
-	* Aquí tenemos dos sub carpetas main (donde está el código) y test (la carpeta a ejecutar)
-	* Dentro de esa carpeta utilizando Click derecho en la carpeta test se debe elegir la opción Run as -> jUnti aplication (si se utiliza run coverage se mostrará el porcentaje de cobertura).
+	* Para ejecutar los tests se debue seguir los pasos del sigueinte link [Tests](https://github.com/jerevallejo/BikeRental/wiki/Tests.)
 	* Se a adjuntado un archivo .json donde se encuentran ejemplos de jsons para probar en algun programa con "Postman" yrealizar requests a la aplicacion.
 2. Observación, por el momento se está usando una base de datos H2(en memoria) para facilitar la ejecución de los tests, esta base se carga a partir del archivo *import.sql* encontrado en /src/main/resources/, en caso de querer usar una base de datos convencional debemos des comentar en el archivo *application.properties* encontrado en /src/main/resources/. En este archivo se debe configurar lo siguiente: 
 	* spring.datasource.url=jdbc:mysql://localhost/db_bike_rental
