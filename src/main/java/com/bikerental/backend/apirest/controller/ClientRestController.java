@@ -5,7 +5,6 @@ import com.bikerental.backend.apirest.models.entity.Client;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -58,19 +57,9 @@ public class ClientRestController {
 	}
 
 	@PostMapping("/clients")
-	public ResponseEntity<?> create(@Valid @RequestBody Client client, BindingResult result) {
+	public ResponseEntity<?> create(@Valid @RequestBody Client client) {
 		Client clientNew = null;
 		Map<String, Object> response = new HashMap<>();
-
-		if (result.hasErrors()) {
-
-			List<String> errors = result.getFieldErrors().stream()
-					.map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
-					.collect(Collectors.toList());
-
-			response.put("errors", errors);
-			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-		}
 
 		try {
 			clientNew = clientService.save(client);
@@ -91,18 +80,9 @@ public class ClientRestController {
 		Client clientUpdated = null;
 		Map<String, Object> response = new HashMap<>();
 
-		if (result.hasErrors()) {
-
-			List<String> errors = result.getFieldErrors().stream()
-					.map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
-					.collect(Collectors.toList());
-
-			response.put("errors", errors);
-			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-		}
 
 		if (clientActual == null) {
-			response.put("message", "Error: no se puede editar el cliente ID: "
+			response.put("mensaje", "Error: no se puede editar el cliente ID: "
 					.concat(id.toString().concat(" no existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}

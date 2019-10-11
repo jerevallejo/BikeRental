@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.bikerental.backend.apirest.models.entity.Service;
 import com.bikerental.backend.apirest.models.services.ServiceServiceImp;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 
 @RunWith(SpringRunner.class)

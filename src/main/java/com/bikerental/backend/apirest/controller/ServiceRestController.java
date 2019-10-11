@@ -3,7 +3,6 @@ package com.bikerental.backend.apirest.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -60,17 +59,6 @@ public class ServiceRestController {
 	public ResponseEntity<?> create(@Valid @RequestBody Service service, BindingResult result) {
 		Service serviceNew = null;
 		Map<String, Object> response = new HashMap<>();
-
-		if (result.hasErrors()) {
-
-			List<String> errors = result.getFieldErrors().stream()
-					.map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
-					.collect(Collectors.toList());
-
-			response.put("errors", errors);
-			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-		}
-
 		try {
 			serviceNew = serviceService.save(service);
 		} catch (DataAccessException e) {
@@ -89,17 +77,7 @@ public class ServiceRestController {
 		Service serviceActual = serviceService.findById(id);// current, prevailing
 		Service serviceUpdated = null;
 		Map<String, Object> response = new HashMap<>();
-
-		if (result.hasErrors()) {
-
-			List<String> errors = result.getFieldErrors().stream()
-					.map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
-					.collect(Collectors.toList());
-
-			response.put("errors", errors);
-			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-		}
-
+		
 		if (serviceActual == null) {
 			response.put("message", "Error: no se puede editar el servicio ID: "
 					.concat(id.toString().concat(" no existe en la base de datos!")));
