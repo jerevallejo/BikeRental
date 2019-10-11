@@ -1,11 +1,11 @@
-#Sistema para servicio de alquiler de bicicletas
+Sistema para servicio de alquiler de bicicletas
 ==================================================
 
 En el desarrollo de este sistema se decidio utilizar una aplicacion basada en servicios, realizada con Spring Boot, por el momento la aplicacion solo dispone de un backend,  donde se pueden realizar las consultas basicas para el funcionamiento solicitado por el cliente. Se decidio utilizar esta arquitectura ya que nos da la flexibilidad para trabajar de forma independiente el Backend y el frontend, Tambien da la posibilidad del dia de mañana realizar un cambio de tecnologia para el fontend o el backend sin tener que modificar el sistema completo.
 
 La primera accion que realizamos para el desarrollo de este sistema fue definir las entidades que estan involucradas en las acciones necesarias para llevar a cabo las funcionalidades solicitadas por el cliente. Luego se implementaron las entidades definidas, generando su CRUD al cual se accede mediante peticiones HTTP, estos metodos HTTP(GET, POST, PUT, DELETE).
 
-##Los end points otorgados por nuestra api son:
+Los end points otorgados por nuestra api son:
 -------------------------------------------------------
 	*Clientes:
 		* GET: /api/clients 
@@ -38,7 +38,7 @@ La primera accion que realizamos para el desarrollo de este sistema fue definir 
 			*Elimina una factura existente, buscado por su ID.
 
 
-##Install
+Install
 ---------------------------------------------------
 
 1. Para instalar la aplicacion se debe clonar el repo.
