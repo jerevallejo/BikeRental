@@ -45,6 +45,7 @@ Install
 	* Luego de que finalicen las descargas de dependencias se debe abrir la carpeta src/.
 	* Aquí tenemos dos sub carpetas main (donde está el código) y test (la carpeta a ejecutar)
 	* Dentro de esa carpeta utilizando Click derecho en la carpeta test se debe elegir la opción Run as -> jUnti aplication (si se utiliza run coverage se mostrará el porcentaje de cobertura).
+	* Se a adjuntado un archivo .json donde se encuentran ejemplos de jsons para probar en algun programa con "Postman" yrealizar requests a la aplicacion.
 2. Observación, por el momento se está usando una base de datos H2(en memoria) para facilitar la ejecución de los tests, esta base se carga a partir del archivo *import.sql* encontrado en /src/main/resources/, en caso de querer usar una base de datos convencional debemos des comentar en el archivo *application.properties* encontrado en /src/main/resources/. En este archivo se debe configurar lo siguiente: 
 	* spring.datasource.url=jdbc:mysql://localhost/db_bike_rental
 		* Se debe asignar la url de la base de datos y el nombre de la base a utilizar
